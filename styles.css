@@ -1,0 +1,983 @@
+/* ========================================
+   CSS Variables & Reset
+======================================== */
+:root {
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #F5F5F5;
+    --color-black: #0A0A0A;
+    --color-gray: #5A5A5A;
+    --color-gray-light: #9A9A9A;
+    --color-border: #E0E0E0;
+    --color-accent: #9EB25D;
+    --color-accent-dark: #8A9E4F;
+    
+    --font-main: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 10rem;
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-black);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* ========================================
+   Navigation Minimaliste
+======================================== */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    letter-spacing: 0.05em;
+}
+
+.nav-toggle {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+.toggle-line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-bg);
+    transition: all var(--transition);
+}
+
+body.menu-open .toggle-line:first-child {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+body.menu-open .toggle-line:last-child {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ========================================
+   Menu Overlay
+======================================== */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-black);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition);
+}
+
+body.menu-open .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-content {
+    text-align: center;
+}
+
+.menu-links {
+    list-style: none;
+    margin-bottom: var(--space-2xl);
+}
+
+.menu-link {
+    display: block;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--color-bg);
+    padding: var(--space-sm) 0;
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.menu-link::before {
+    content: attr(data-num);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-gray-light);
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%);
+}
+
+.menu-link:hover {
+    color: var(--color-accent);
+}
+
+.menu-footer {
+    color: var(--color-gray-light);
+    font-size: 0.875rem;
+}
+
+.menu-footer a:hover {
+    color: var(--color-accent);
+}
+
+/* ========================================
+   Formes Géométriques Décoratives
+======================================== */
+.geometric-shape {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.shape-circle {
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+    opacity: 1;
+}
+
+.shape-square {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-accent);
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+.shape-rectangle {
+    width: 420px;
+    height: 250px;
+    background-color: var(--color-accent);
+    opacity: 1;
+    border-radius: 30px;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid var(--color-accent);
+    opacity: 1;
+}
+
+.shape-ring {
+    width: 180px;
+    height: 180px;
+    border: 5px solid var(--color-accent);
+    border-radius: 50%;
+    opacity: 1;
+}
+
+.shape-line {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 1;
+}
+
+/* ========================================
+   Hero - Nom Massif
+======================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-name {
+    font-size: clamp(4rem, 18vw, 16rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.name-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.hero-title {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--color-gray);
+    margin-top: var(--space-lg);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    opacity: 0;
+}
+
+.scroll-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--color-gray-light);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--color-black), transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: var(--color-accent);
+    animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+    0% { top: -30%; }
+    100% { top: 100%; }
+}
+
+/* ========================================
+   Section Label
+======================================== */
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--color-gray-light);
+    margin-bottom: var(--space-xl);
+}
+
+.section-label-projects {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    z-index: 10;
+}
+
+/* ========================================
+   About Section
+======================================== */
+.about {
+    min-height: 100vh;
+    padding: var(--space-3xl) var(--space-lg);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content {
+    margin-bottom: var(--space-2xl);
+}
+
+.about-text {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Skills */
+.skills-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.skills-group {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.skills-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-gray-light);
+    margin-bottom: var(--space-md);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.skill {
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.skill:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+/* Interests */
+.interests-section {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.interests-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-gray-light);
+    margin-bottom: var(--space-md);
+}
+
+.interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.interest {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-black);
+    position: relative;
+}
+
+.interest::after {
+    content: '·';
+    margin-left: var(--space-sm);
+    color: var(--color-accent);
+}
+
+.interest:last-child::after {
+    display: none;
+}
+
+/* ========================================
+   Projects Section
+======================================== */
+.projects {
+    position: relative;
+    min-height: 100vh;
+    border-top: 1px solid var(--color-border);
+}
+
+.projects-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.project-slide {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow: hidden;
+    background-color: var(--color-bg);
+}
+
+.project-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.project-slide:nth-child(even) {
+    background-color: var(--color-bg-alt);
+}
+
+.project-content {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.project-index {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-name {
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: 0;
+    margin-bottom: var(--space-md);
+    opacity: 0;
+    transform: translateY(40px);
+    text-align: center;
+}
+
+.project-desc {
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    margin-bottom: var(--space-lg);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-black);
+    color: var(--color-bg);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+.link-arrow {
+    font-size: 1.25rem;
+    transition: transform var(--transition-fast);
+}
+
+.project-link:hover .link-arrow {
+    transform: translate(3px, -3px);
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    z-index: 10;
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    color: var(--color-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--space-sm);
+    transition: all var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    color: var(--color-accent);
+    transform: scale(1.2);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-gray-light);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.dot.active {
+    background-color: var(--color-accent);
+    transform: scale(1.3);
+}
+
+.dot:hover {
+    background-color: var(--color-gray);
+}
+
+/* ========================================
+   Contact Section
+======================================== */
+.contact {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+    background-color: var(--color-black);
+    color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-container {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact .section-label {
+    color: var(--color-gray);
+}
+
+.contact-title {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2xl);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.contact-item:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+.contact-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+}
+
+.contact-item:hover .contact-label {
+    opacity: 0.8;
+}
+
+.contact-value {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ========================================
+   Footer
+======================================== */
+.footer {
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-black);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-gray);
+    font-size: 0.8rem;
+}
+
+.footer-name {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+
+/* Tablette et mobile - 1024px et moins */
+@media (max-width: 1024px) {
+    /* Ajustement des formes géométriques pour tablette */
+    .hero .geometric-shape.shape-circle {
+        width: 500px !important;
+        height: 500px !important;
+    }
+
+    .contact .geometric-shape.shape-circle {
+        width: 400px !important;
+        height: 400px !important;
+    }
+}
+
+/* Mobile - 768px et moins */
+@media (max-width: 768px) {
+    /* Cacher les formes géométriques sauf hero et contact */
+    .menu-overlay .geometric-shape,
+    .about .geometric-shape {
+        display: none !important;
+    }
+
+    /* Navigation */
+    .nav {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: var(--space-lg);
+        min-height: 80vh;
+    }
+
+    .hero-name {
+        font-size: clamp(3rem, 15vw, 6rem);
+    }
+
+    .hero-title {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+    }
+
+    /* Formes géométriques Hero */
+    .hero .geometric-shape.shape-circle {
+        width: 400px !important;
+        height: 400px !important;
+        bottom: -20% !important;
+        right: -15% !important;
+    }
+
+    /* About Section */
+    .about {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .about-bio {
+        max-width: 100%;
+    }
+
+    .about-bio p {
+        font-size: 1rem;
+    }
+
+    .skills-section {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    /* Projects Section */
+    .project-slide {
+        padding: var(--space-lg);
+    }
+
+    .project-index {
+        font-size: 0.7rem;
+    }
+
+    .project-name {
+        font-size: clamp(2.5rem, 10vw, 8rem) !important;
+    }
+
+    .project-desc {
+        font-size: 0.9rem;
+    }
+
+    .section-label-projects {
+        left: var(--space-md);
+    }
+
+    .carousel-nav {
+        bottom: var(--space-md);
+        gap: var(--space-md);
+    }
+
+    .carousel-btn {
+        font-size: 1.2rem;
+        padding: var(--space-xs);
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: var(--space-lg);
+    }
+
+    .contact-container {
+        gap: var(--space-xl);
+    }
+
+    .contact-info h2 {
+        font-size: clamp(2rem, 8vw, 4rem);
+    }
+
+    .contact-links {
+        gap: var(--space-md);
+    }
+
+    /* Formes géométriques Contact */
+    .contact .geometric-shape.shape-circle {
+        width: 300px !important;
+        height: 300px !important;
+        bottom: -15% !important;
+        left: -10% !important;
+    }
+
+    /* Menu Overlay */
+    .menu-links {
+        gap: var(--space-lg);
+    }
+
+    .menu-link {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+
+    .menu-link::before {
+        display: none;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-xs);
+        text-align: center;
+    }
+}
+
+/* Petit mobile - 480px et moins */
+@media (max-width: 480px) {
+    /* Hero */
+    .hero {
+        padding: var(--space-md);
+        min-height: 70vh;
+    }
+
+    .hero-name {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    .hero-title {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+    }
+
+    /* Formes géométriques Hero - Très réduites */
+    .hero .geometric-shape.shape-circle {
+        width: 300px !important;
+        height: 300px !important;
+        bottom: -25% !important;
+        right: -20% !important;
+    }
+
+    /* About */
+    .about {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .section-label {
+        font-size: 0.65rem;
+    }
+
+    .about-bio h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Projects */
+    .project-slide {
+        padding: var(--space-md);
+    }
+
+    .project-name {
+        font-size: clamp(2rem, 8vw, 6rem) !important;
+        margin-bottom: var(--space-sm);
+    }
+
+    .project-desc {
+        font-size: 0.85rem;
+    }
+
+    .project-link {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-md);
+    }
+
+    .carousel-nav {
+        bottom: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Contact */
+    .contact {
+        padding: var(--space-md);
+    }
+
+    .contact-info h2 {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+        margin-bottom: var(--space-sm);
+    }
+
+    .contact-email {
+        font-size: 1rem;
+    }
+
+    .contact-link {
+        font-size: 0.8rem;
+    }
+
+    /* Formes géométriques Contact - Très réduites */
+    .contact .geometric-shape.shape-circle {
+        width: 250px !important;
+        height: 250px !important;
+        bottom: -20% !important;
+        left: -15% !important;
+    }
+
+    /* Menu Overlay */
+    .menu-link {
+        font-size: clamp(1.8rem, 9vw, 3rem);
+    }
+
+    .menu-footer a {
+        font-size: 0.85rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--space-md);
+    }
+
+    .footer-name,
+    .footer-year {
+        font-size: 0.75rem;
+    }
+}

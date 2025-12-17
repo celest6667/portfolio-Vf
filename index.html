@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célestin Petit — Développeur Front-end</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Minimaliste -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">PORTFOLIO</a>
+        <button class="nav-toggle" aria-label="Menu">
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+        </button>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay">
+        <div class="geometric-shape shape-circle" style="top: -20%; right: -10%; width: 600px; height: 600px;"></div>
+        <div class="menu-content">
+            <ul class="menu-links">
+                <li><a href="#about" class="menu-link" data-num="01">À PROPOS</a></li>
+                <li><a href="#projects" class="menu-link" data-num="02">PROJETS</a></li>
+                <li><a href="#contact" class="menu-link" data-num="03">CONTACT</a></li>
+            </ul>
+            <div class="menu-footer">
+                <a href="mailto:celestin.petit242@gmail.com">celestin.petit242@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero - Nom Massif -->
+    <section class="hero" id="home">
+        <!-- Formes décoratives Hero -->
+        <div class="geometric-shape shape-circle" style="bottom: -15%; right: -5%;"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-name">
+                <span class="name-line">CÉLESTIN</span>
+                <span class="name-line">PETIT</span>
+            </h1>
+            <p class="hero-title">DÉVELOPPEUR FRONT-END</p>
+        </div>
+       
+    </section>
+
+    <!-- À Propos -->
+    <section class="about" id="about">
+        <div class="geometric-shape shape-ring" style="top: 8%; left: 2%;"></div>
+        <div class="geometric-shape shape-rectangle" style="bottom: 5%; right: 8%;"></div>
+        <div class="about-container">
+            <span class="section-label">01 — À PROPOS</span>
+            <div class="about-content">
+                <p class="about-text">Étudiant en deuxième année à MyDigitalSchool et actuellement en alternance, je me spécialise dans le développement front-end. Ce qui me passionne, c'est la capacité du web à influencer l'expérience utilisateur — chaque interaction, chaque animation, chaque détail compte.</p>
+                <p class="about-text">J'ai un attrait particulier pour le design et les interfaces à l'esthétique soignée. Mon objectif : intégrer une entreprise ambitieuse à la sortie de mes études, et pourquoi pas un jour lancer ma propre agence de développement web.</p>
+            </div>
+
+            <div class="skills-section">
+                <div class="skills-group">
+                    <h3 class="skills-title">DÉVELOPPEMENT</h3>
+                    <div class="skills-list">
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Tailwind CSS</span>
+                        <span class="skill">GSAP</span>
+                        <span class="skill">Vite.js</span>
+                        <span class="skill">Next.js</span>
+                        <span class="skill">PHP</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-title">NO-CODE & OUTILS</h3>
+                    <div class="skills-list">
+                        <span class="skill">Webflow</span>
+                        <span class="skill">Softr</span>
+                        <span class="skill">Airtable</span>
+                        <span class="skill">Make</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-title">DESIGN</h3>
+                    <div class="skills-list">
+                        <span class="skill">Suite Adobe</span>
+                        <span class="skill">Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interests-section">
+                <h3 class="interests-title">CENTRES D'INTÉRÊT</h3>
+                <div class="interests-list">
+                    <span class="interest">Streetwear</span>
+                    <span class="interest">Art</span>
+                    <span class="interest">Rap français</span>
+                    <span class="interest">Architecture</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets - Carrousel -->
+    <section class="projects" id="projects">
+        <span class="section-label section-label-projects">02 — PROJETS</span>
+
+        <div class="projects-carousel">
+            <!-- Projet 1 -->
+            <div class="project-slide active" data-project="1">
+                <div class="project-content">
+                    <span class="project-index">001</span>
+                    <h2 class="project-name">MYDIGITALWEEK</h2>
+                    <p class="project-desc">Immersion dans l'univers du numérique</p>
+                    <a href="projet-mydigitalweek.html" class="project-link">
+                        <span>VOIR LE PROJET</span>
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-slide" data-project="2">
+                <div class="project-content">
+                    <span class="project-index">002</span>
+                    <h2 class="project-name">HYPESHOES</h2>
+                    <p class="project-desc">Site vitrine de chaussures</p>
+                    <a href="projet-hypeshoes.html" class="project-link">
+                        <span>VOIR LE PROJET</span>
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-slide" data-project="3">
+                <div class="project-content">
+                    <span class="project-index">003</span>
+                    <h2 class="project-name">À VOS CÔTÉS</h2>
+                    <p class="project-desc">Landing page startup</p>
+                    <a href="projet-avoscotes.html" class="project-link">
+                        <span>VOIR LE PROJET</span>
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Carousel -->
+        <div class="carousel-nav">
+            <button class="carousel-btn carousel-prev" aria-label="Projet précédent">←</button>
+            <div class="carousel-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+            <button class="carousel-btn carousel-next" aria-label="Projet suivant">→</button>
+        </div>
+    </section>
+
+    <!-- Contact - Plein écran -->
+    <section class="contact" id="contact">
+        <!-- Formes décoratives Contact -->
+        <div class="geometric-shape shape-circle" style="bottom: -4%; left: -7%; width: 500px; height: 500px;"></div>
+
+        <div class="contact-container">
+            <span class="section-label">03 — CONTACT</span>
+            <h2 class="contact-title">ENVIE D'EN SAVOIR PLUS ?</h2>
+            <div class="contact-links">
+                <a href="mailto:celestin.petit242@gmail.com" class="contact-item">
+                    <span class="contact-label">EMAIL</span>
+                    <span class="contact-value">celestin.petit242@gmail.com</span>
+                </a>
+                <a href="tel:0649610125" class="contact-item">
+                    <span class="contact-label">TÉLÉPHONE</span>
+                    <span class="contact-value">06 49 61 01 25</span>
+                </a>
+                <a href="https://www.linkedin.com/in/célestin-petit" target="_blank" class="contact-item">
+                    <span class="contact-label">LINKEDIN</span>
+                    <span class="contact-value">célestin-petit</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-name">CÉLESTIN PETIT</span>
+            <span class="footer-year">© 2025</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
